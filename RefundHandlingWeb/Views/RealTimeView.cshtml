@@ -1,0 +1,58 @@
+﻿@model RefundHandlingWeb.Models.RealTimeInfo
+
+@{
+    ViewBag.Title = "RealTimeView";
+}
+
+<h2>RealTimeView</h2>
+
+<div>
+    <h4>RealTimeInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RefundId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefundId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CouponStatusCheck1A)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CouponStatusCheck1A)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CouponStatusCheckRapid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CouponStatusCheckRapid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CRMAgencyStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CRMAgencyStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TicketInCRM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TicketInCRM)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

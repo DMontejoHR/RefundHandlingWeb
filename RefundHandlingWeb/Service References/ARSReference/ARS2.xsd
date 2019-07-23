@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SharedModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SharedModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="RefundInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AgentComment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AgentIATACode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AirlineCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Commission" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConjunctionTicket1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConjunctionTicket1Identifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConjunctionTicket2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConjunctionTicket2Identifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConjunctionTicket3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConjunctionTicket3Identifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConjunctionTicket4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConjunctionTicket4Identifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConjunctionTicket5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConjunctionTicket5Identifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreditCardNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FareBasis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FlatFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FormofPayment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassengerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProvidedEMailAddresses" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RefundApplicationDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RefundApplicationNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RefundTicketCouponNumberIdentifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RefundedFareAmount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RefundedTicketNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaxAmounts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WaiverCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RefundInfo" nillable="true" type="tns:RefundInfo" />
+</xs:schema>

@@ -1,0 +1,117 @@
+﻿body {
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+   .table-bordered > tbody > tr:nth-child(odd) {
+         background-color: rgb(247,247,222);
+    }
+     .table-bordered > tbody {
+         font-size:11px;
+    }
+     .table-bordered > thead {
+         font-size:11px;
+    }
+.milabel {
+    
+    font-family: Segoe UI,Tahoma,Arial;
+    color: rgb(102, 102, 102);
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-color:rgba(238, 241, 245, 1);
+}
+
+.mitext {
+    color: rgb(101, 102, 105);
+    font-family: Segoe UI,Tahoma,Arial;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: left;
+    white-space: nowrap;
+}
+.ms-crm-List-Row {
+    border-bottom-color: #dbdee1;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+.btn-primary {
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  color: #ffffff;
+  background-color: #3276b1;
+  border-color: #285e8e;
+}
+
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background-image: none;
+}
+
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+div#spinner
+{
+    display: none;
+    width:50px;
+    height: 50px;
+    position: relative;
+    top: 50%;
+    left: 30%;
+    background:url(/Content/giphy.gif) no-repeat center #fff;
+    text-align:center;
+    vertical-align:central;
+    padding:10px;
+    font:normal 16px Segoe UI,Tahoma,Arial, Geneva, sans-serif;
+    border:1px solid #dbdee1;
+    margin-left: -50px;
+    margin-top: -50px;
+    z-index:2;
+    overflow: visible;
+}

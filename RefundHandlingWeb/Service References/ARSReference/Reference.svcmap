@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="434fceae-d1e1-431a-aa5a-3bfe6c2d844a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://ars.hr-zcs.com/ARS.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ARS.wsdl" MetadataType="Wsdl" ID="6c30a32c-5772-46de-b58c-182d6e021323" SourceId="1" SourceUrl="http://ars.hr-zcs.com/ARS.svc?wsdl" />
+    <MetadataFile FileName="ARS.xsd" MetadataType="Schema" ID="81a9bf0b-8878-41de-816d-059ea35eea01" SourceId="1" SourceUrl="http://ars.hr-zcs.com/ARS.svc?xsd=xsd2" />
+    <MetadataFile FileName="ARS1.xsd" MetadataType="Schema" ID="5f0fc010-96c1-4cb1-a032-7d3c5b5bcd13" SourceId="1" SourceUrl="http://ars.hr-zcs.com/ARS.svc?xsd=xsd4" />
+    <MetadataFile FileName="ARS2.xsd" MetadataType="Schema" ID="70745e40-8c6b-4034-9401-aadb43ee126b" SourceId="1" SourceUrl="http://ars.hr-zcs.com/ARS.svc?xsd=xsd5" />
+    <MetadataFile FileName="ARS3.xsd" MetadataType="Schema" ID="6cc4eae1-623c-4bc2-9468-b43fd4882c9e" SourceId="1" SourceUrl="http://ars.hr-zcs.com/ARS.svc?xsd=xsd3" />
+    <MetadataFile FileName="ARS4.xsd" MetadataType="Schema" ID="af9f6541-0a8d-404f-b5a4-47c5cb6d1497" SourceId="1" SourceUrl="http://ars.hr-zcs.com/ARS.svc?xsd=xsd0" />
+    <MetadataFile FileName="ARS5.xsd" MetadataType="Schema" ID="ecedb9e7-a9fb-42c0-abb4-4f360fa23f37" SourceId="1" SourceUrl="http://ars.hr-zcs.com/ARS.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

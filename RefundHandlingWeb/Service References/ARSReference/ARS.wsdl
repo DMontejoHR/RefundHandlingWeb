@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ARS" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://ars.hr-zcs.com/ARS.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://ars.hr-zcs.com/ARS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://ars.hr-zcs.com/ARS.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ARSWcf" />
+      <xsd:import schemaLocation="http://ars.hr-zcs.com/ARS.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ARSLayer" />
+      <xsd:import schemaLocation="http://ars.hr-zcs.com/ARS.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://ars.hr-zcs.com/ARS.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SharedModel" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IARS_Kern_SendSingleCommand_InputMessage">
+    <wsdl:part name="parameters" element="tns:Kern_SendSingleCommand" />
+  </wsdl:message>
+  <wsdl:message name="IARS_Kern_SendSingleCommand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Kern_SendSingleCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_Kern_SendSingleCommand_Kern_SSC00_FaultMessage">
+    <wsdl:part name="detail" element="tns:Kern_SSC00" />
+  </wsdl:message>
+  <wsdl:message name="IARS_Kern_StartMultipleCommand_InputMessage">
+    <wsdl:part name="parameters" element="tns:Kern_StartMultipleCommand" />
+  </wsdl:message>
+  <wsdl:message name="IARS_Kern_StartMultipleCommand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Kern_StartMultipleCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_Kern_StartMultipleCommand_Kern_StMC00_FaultMessage">
+    <wsdl:part name="detail" element="tns:Kern_StMC00" />
+  </wsdl:message>
+  <wsdl:message name="IARS_Kern_SendMultipleCommand_InputMessage">
+    <wsdl:part name="parameters" element="tns:Kern_SendMultipleCommand" />
+  </wsdl:message>
+  <wsdl:message name="IARS_Kern_SendMultipleCommand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Kern_SendMultipleCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_Kern_SendMultipleCommand_Kern_SeMC00_FaultMessage">
+    <wsdl:part name="detail" element="tns:Kern_SeMC00" />
+  </wsdl:message>
+  <wsdl:message name="IARS_Kern_SendMultipleCommandNoWait_InputMessage">
+    <wsdl:part name="parameters" element="tns:Kern_SendMultipleCommandNoWait" />
+  </wsdl:message>
+  <wsdl:message name="IARS_Kern_SendMultipleCommandNoWait_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Kern_SendMultipleCommandNoWaitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_Kern_SendMultipleCommandNoWait_Kern_SeMCNW00_FaultMessage">
+    <wsdl:part name="detail" element="tns:Kern_SeMCNW00" />
+  </wsdl:message>
+  <wsdl:message name="IARS_Kern_EndMultipleCommand_InputMessage">
+    <wsdl:part name="parameters" element="tns:Kern_EndMultipleCommand" />
+  </wsdl:message>
+  <wsdl:message name="IARS_Kern_EndMultipleCommand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Kern_EndMultipleCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_Kern_EndMultipleCommand_Kern_EMC00_FaultMessage">
+    <wsdl:part name="detail" element="tns:Kern_EMC00" />
+  </wsdl:message>
+  <wsdl:message name="IARS_Kern_GetProgress_InputMessage">
+    <wsdl:part name="parameters" element="tns:Kern_GetProgress" />
+  </wsdl:message>
+  <wsdl:message name="IARS_Kern_GetProgress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Kern_GetProgressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_Kern_GetProgress_Kern_GP00_FaultMessage">
+    <wsdl:part name="detail" element="tns:Kern_GP00" />
+  </wsdl:message>
+  <wsdl:message name="IARS_Kern_GetTransactionMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:Kern_GetTransactionMessages" />
+  </wsdl:message>
+  <wsdl:message name="IARS_Kern_GetTransactionMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Kern_GetTransactionMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_Kern_GetTransactionMessages_Kern_GTM00_FaultMessage">
+    <wsdl:part name="detail" element="tns:Kern_GTM00" />
+  </wsdl:message>
+  <wsdl:message name="IARS_ANC_RetrieveSVCQueue_InputMessage">
+    <wsdl:part name="parameters" element="tns:ANC_RetrieveSVCQueue" />
+  </wsdl:message>
+  <wsdl:message name="IARS_ANC_RetrieveSVCQueue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ANC_RetrieveSVCQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_ASW_CheckAgencyUmsaetze_InputMessage">
+    <wsdl:part name="parameters" element="tns:ASW_CheckAgencyUmsaetze" />
+  </wsdl:message>
+  <wsdl:message name="IARS_ASW_CheckAgencyUmsaetze_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ASW_CheckAgencyUmsaetzeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_CAT15_CompleteCheckFQ_InputMessage">
+    <wsdl:part name="parameters" element="tns:CAT15_CompleteCheckFQ" />
+  </wsdl:message>
+  <wsdl:message name="IARS_CAT15_CompleteCheckFQ_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CAT15_CompleteCheckFQResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_CAT15_CompleteCheckFQ_DelayedAnswerExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/ARSWcf" name="detail" element="q1:DelayedAnswerException" />
+  </wsdl:message>
+  <wsdl:message name="IARS_CAT15_ListFQ_InputMessage">
+    <wsdl:part name="parameters" element="tns:CAT15_ListFQ" />
+  </wsdl:message>
+  <wsdl:message name="IARS_CAT15_ListFQ_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CAT15_ListFQResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_CAT15_CheckLineFQ_InputMessage">
+    <wsdl:part name="parameters" element="tns:CAT15_CheckLineFQ" />
+  </wsdl:message>
+  <wsdl:message name="IARS_CAT15_CheckLineFQ_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CAT15_CheckLineFQResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_CAT15_PreviousCheckFQ_InputMessage">
+    <wsdl:part name="parameters" element="tns:CAT15_PreviousCheckFQ" />
+  </wsdl:message>
+  <wsdl:message name="IARS_CAT15_PreviousCheckFQ_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CAT15_PreviousCheckFQResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_CAT15_PreviousCheckFQ_DelayedAnswerExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/ARSWcf" name="detail" element="q2:DelayedAnswerException" />
+  </wsdl:message>
+  <wsdl:message name="IARS_HRG_GetUSDEURConversion_InputMessage">
+    <wsdl:part name="parameters" element="tns:HRG_GetUSDEURConversion" />
+  </wsdl:message>
+  <wsdl:message name="IARS_HRG_GetUSDEURConversion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HRG_GetUSDEURConversionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_HRS_RetrieveEmailFromPNR_InputMessage">
+    <wsdl:part name="parameters" element="tns:HRS_RetrieveEmailFromPNR" />
+  </wsdl:message>
+  <wsdl:message name="IARS_HRS_RetrieveEmailFromPNR_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HRS_RetrieveEmailFromPNRResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_RAC_AddRefund_InputMessage">
+    <wsdl:part name="parameters" element="tns:RAC_AddRefund" />
+  </wsdl:message>
+  <wsdl:message name="IARS_RAC_AddRefund_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RAC_AddRefundResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_RAC_AddRefund_RAC_ADD00_FaultMessage">
+    <wsdl:part name="detail" element="tns:RAC_ADD00" />
+  </wsdl:message>
+  <wsdl:message name="IARS_RAC_GetRefundURL_InputMessage">
+    <wsdl:part name="parameters" element="tns:RAC_GetRefundURL" />
+  </wsdl:message>
+  <wsdl:message name="IARS_RAC_GetRefundURL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RAC_GetRefundURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_RAC_ProcessRefundList_InputMessage">
+    <wsdl:part name="parameters" element="tns:RAC_ProcessRefundList" />
+  </wsdl:message>
+  <wsdl:message name="IARS_RAC_ProcessRefundList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RAC_ProcessRefundListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_RAC_RARealTimeCheck_InputMessage">
+    <wsdl:part name="parameters" element="tns:RAC_RARealTimeCheck" />
+  </wsdl:message>
+  <wsdl:message name="IARS_RAC_RARealTimeCheck_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RAC_RARealTimeCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_RAC_UpdateNUCs_InputMessage">
+    <wsdl:part name="parameters" element="tns:RAC_UpdateNUCs" />
+  </wsdl:message>
+  <wsdl:message name="IARS_RAC_UpdateNUCs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RAC_UpdateNUCsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_UpdateBSPTable_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBSPTable" />
+  </wsdl:message>
+  <wsdl:message name="IARS_UpdateBSPTable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBSPTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_UpdateDACTable_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDACTable" />
+  </wsdl:message>
+  <wsdl:message name="IARS_UpdateDACTable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDACTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_UpdateGSATable_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGSATable" />
+  </wsdl:message>
+  <wsdl:message name="IARS_UpdateGSATable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGSATableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_UpdateGSATableForCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGSATableForCountry" />
+  </wsdl:message>
+  <wsdl:message name="IARS_UpdateGSATableForCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGSATableForCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IARS_UpdateIETTable_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateIETTable" />
+  </wsdl:message>
+  <wsdl:message name="IARS_UpdateIETTable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateIETTableResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IARS">
+    <wsdl:operation name="Kern_SendSingleCommand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/Kern_SendSingleCommand" message="tns:IARS_Kern_SendSingleCommand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/Kern_SendSingleCommandResponse" message="tns:IARS_Kern_SendSingleCommand_OutputMessage" />
+      <wsdl:fault wsaw:Action="Invalid Token Exception" name="Kern_SSC00" message="tns:IARS_Kern_SendSingleCommand_Kern_SSC00_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Kern_StartMultipleCommand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/Kern_StartMultipleCommand" message="tns:IARS_Kern_StartMultipleCommand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/Kern_StartMultipleCommandResponse" message="tns:IARS_Kern_StartMultipleCommand_OutputMessage" />
+      <wsdl:fault wsaw:Action="Invalid Token Exception" name="Kern_StMC00" message="tns:IARS_Kern_StartMultipleCommand_Kern_StMC00_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Kern_SendMultipleCommand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/Kern_SendMultipleCommand" message="tns:IARS_Kern_SendMultipleCommand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/Kern_SendMultipleCommandResponse" message="tns:IARS_Kern_SendMultipleCommand_OutputMessage" />
+      <wsdl:fault wsaw:Action="Invalid Token Exception" name="Kern_SeMC00" message="tns:IARS_Kern_SendMultipleCommand_Kern_SeMC00_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Kern_SendMultipleCommandNoWait">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/Kern_SendMultipleCommandNoWait" message="tns:IARS_Kern_SendMultipleCommandNoWait_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/Kern_SendMultipleCommandNoWaitResponse" message="tns:IARS_Kern_SendMultipleCommandNoWait_OutputMessage" />
+      <wsdl:fault wsaw:Action="Invalid Token Exception" name="Kern_SeMCNW00" message="tns:IARS_Kern_SendMultipleCommandNoWait_Kern_SeMCNW00_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Kern_EndMultipleCommand">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/Kern_EndMultipleCommand" message="tns:IARS_Kern_EndMultipleCommand_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/Kern_EndMultipleCommandResponse" message="tns:IARS_Kern_EndMultipleCommand_OutputMessage" />
+      <wsdl:fault wsaw:Action="Invalid Token Exception" name="Kern_EMC00" message="tns:IARS_Kern_EndMultipleCommand_Kern_EMC00_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Kern_GetProgress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/Kern_GetProgress" message="tns:IARS_Kern_GetProgress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/Kern_GetProgressResponse" message="tns:IARS_Kern_GetProgress_OutputMessage" />
+      <wsdl:fault wsaw:Action="Invalid Token Exception" name="Kern_GP00" message="tns:IARS_Kern_GetProgress_Kern_GP00_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Kern_GetTransactionMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/Kern_GetTransactionMessages" message="tns:IARS_Kern_GetTransactionMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/Kern_GetTransactionMessagesResponse" message="tns:IARS_Kern_GetTransactionMessages_OutputMessage" />
+      <wsdl:fault wsaw:Action="Invalid Token Exception" name="Kern_GTM00" message="tns:IARS_Kern_GetTransactionMessages_Kern_GTM00_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ANC_RetrieveSVCQueue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/ANC_RetrieveSVCQueue" message="tns:IARS_ANC_RetrieveSVCQueue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/ANC_RetrieveSVCQueueResponse" message="tns:IARS_ANC_RetrieveSVCQueue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ASW_CheckAgencyUmsaetze">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/ASW_CheckAgencyUmsaetze" message="tns:IARS_ASW_CheckAgencyUmsaetze_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/ASW_CheckAgencyUmsaetzeResponse" message="tns:IARS_ASW_CheckAgencyUmsaetze_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CAT15_CompleteCheckFQ">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/CAT15_CompleteCheckFQ" message="tns:IARS_CAT15_CompleteCheckFQ_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/CAT15_CompleteCheckFQResponse" message="tns:IARS_CAT15_CompleteCheckFQ_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IARS/CAT15_CompleteCheckFQDelayedAnswerExceptionFault" name="DelayedAnswerExceptionFault" message="tns:IARS_CAT15_CompleteCheckFQ_DelayedAnswerExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CAT15_ListFQ">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/CAT15_ListFQ" message="tns:IARS_CAT15_ListFQ_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/CAT15_ListFQResponse" message="tns:IARS_CAT15_ListFQ_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CAT15_CheckLineFQ">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/CAT15_CheckLineFQ" message="tns:IARS_CAT15_CheckLineFQ_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/CAT15_CheckLineFQResponse" message="tns:IARS_CAT15_CheckLineFQ_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CAT15_PreviousCheckFQ">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/CAT15_PreviousCheckFQ" message="tns:IARS_CAT15_PreviousCheckFQ_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/CAT15_PreviousCheckFQResponse" message="tns:IARS_CAT15_PreviousCheckFQ_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IARS/CAT15_PreviousCheckFQDelayedAnswerExceptionFault" name="DelayedAnswerExceptionFault" message="tns:IARS_CAT15_PreviousCheckFQ_DelayedAnswerExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HRG_GetUSDEURConversion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/HRG_GetUSDEURConversion" message="tns:IARS_HRG_GetUSDEURConversion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/HRG_GetUSDEURConversionResponse" message="tns:IARS_HRG_GetUSDEURConversion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HRS_RetrieveEmailFromPNR">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/HRS_RetrieveEmailFromPNR" message="tns:IARS_HRS_RetrieveEmailFromPNR_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/HRS_RetrieveEmailFromPNRResponse" message="tns:IARS_HRS_RetrieveEmailFromPNR_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RAC_AddRefund">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/RAC_AddRefund" message="tns:IARS_RAC_AddRefund_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/RAC_AddRefundResponse" message="tns:IARS_RAC_AddRefund_OutputMessage" />
+      <wsdl:fault wsaw:Action="An error ocurred while calling RAC_AddRefund" name="RAC_ADD00" message="tns:IARS_RAC_AddRefund_RAC_ADD00_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RAC_GetRefundURL">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/RAC_GetRefundURL" message="tns:IARS_RAC_GetRefundURL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/RAC_GetRefundURLResponse" message="tns:IARS_RAC_GetRefundURL_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RAC_ProcessRefundList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/RAC_ProcessRefundList" message="tns:IARS_RAC_ProcessRefundList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/RAC_ProcessRefundListResponse" message="tns:IARS_RAC_ProcessRefundList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RAC_RARealTimeCheck">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/RAC_RARealTimeCheck" message="tns:IARS_RAC_RARealTimeCheck_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/RAC_RARealTimeCheckResponse" message="tns:IARS_RAC_RARealTimeCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RAC_UpdateNUCs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/RAC_UpdateNUCs" message="tns:IARS_RAC_UpdateNUCs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/RAC_UpdateNUCsResponse" message="tns:IARS_RAC_UpdateNUCs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBSPTable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/UpdateBSPTable" message="tns:IARS_UpdateBSPTable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/UpdateBSPTableResponse" message="tns:IARS_UpdateBSPTable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDACTable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/UpdateDACTable" message="tns:IARS_UpdateDACTable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/UpdateDACTableResponse" message="tns:IARS_UpdateDACTable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGSATable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/UpdateGSATable" message="tns:IARS_UpdateGSATable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/UpdateGSATableResponse" message="tns:IARS_UpdateGSATable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGSATableForCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/UpdateGSATableForCountry" message="tns:IARS_UpdateGSATableForCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/UpdateGSATableForCountryResponse" message="tns:IARS_UpdateGSATableForCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateIETTable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IARS/UpdateIETTable" message="tns:IARS_UpdateIETTable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IARS/UpdateIETTableResponse" message="tns:IARS_UpdateIETTable_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IARS" type="tns:IARS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Kern_SendSingleCommand">
+      <soap:operation soapAction="http://tempuri.org/IARS/Kern_SendSingleCommand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Kern_SSC00">
+        <soap:fault use="literal" name="Kern_SSC00" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Kern_StartMultipleCommand">
+      <soap:operation soapAction="http://tempuri.org/IARS/Kern_StartMultipleCommand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Kern_StMC00">
+        <soap:fault use="literal" name="Kern_StMC00" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Kern_SendMultipleCommand">
+      <soap:operation soapAction="http://tempuri.org/IARS/Kern_SendMultipleCommand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Kern_SeMC00">
+        <soap:fault use="literal" name="Kern_SeMC00" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Kern_SendMultipleCommandNoWait">
+      <soap:operation soapAction="http://tempuri.org/IARS/Kern_SendMultipleCommandNoWait" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Kern_SeMCNW00">
+        <soap:fault use="literal" name="Kern_SeMCNW00" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Kern_EndMultipleCommand">
+      <soap:operation soapAction="http://tempuri.org/IARS/Kern_EndMultipleCommand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Kern_EMC00">
+        <soap:fault use="literal" name="Kern_EMC00" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Kern_GetProgress">
+      <soap:operation soapAction="http://tempuri.org/IARS/Kern_GetProgress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Kern_GP00">
+        <soap:fault use="literal" name="Kern_GP00" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Kern_GetTransactionMessages">
+      <soap:operation soapAction="http://tempuri.org/IARS/Kern_GetTransactionMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="Kern_GTM00">
+        <soap:fault use="literal" name="Kern_GTM00" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ANC_RetrieveSVCQueue">
+      <soap:operation soapAction="http://tempuri.org/IARS/ANC_RetrieveSVCQueue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ASW_CheckAgencyUmsaetze">
+      <soap:operation soapAction="http://tempuri.org/IARS/ASW_CheckAgencyUmsaetze" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CAT15_CompleteCheckFQ">
+      <soap:operation soapAction="http://tempuri.org/IARS/CAT15_CompleteCheckFQ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DelayedAnswerExceptionFault">
+        <soap:fault use="literal" name="DelayedAnswerExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CAT15_ListFQ">
+      <soap:operation soapAction="http://tempuri.org/IARS/CAT15_ListFQ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CAT15_CheckLineFQ">
+      <soap:operation soapAction="http://tempuri.org/IARS/CAT15_CheckLineFQ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CAT15_PreviousCheckFQ">
+      <soap:operation soapAction="http://tempuri.org/IARS/CAT15_PreviousCheckFQ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DelayedAnswerExceptionFault">
+        <soap:fault use="literal" name="DelayedAnswerExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="HRG_GetUSDEURConversion">
+      <soap:operation soapAction="http://tempuri.org/IARS/HRG_GetUSDEURConversion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HRS_RetrieveEmailFromPNR">
+      <soap:operation soapAction="http://tempuri.org/IARS/HRS_RetrieveEmailFromPNR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAC_AddRefund">
+      <soap:operation soapAction="http://tempuri.org/IARS/RAC_AddRefund" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="RAC_ADD00">
+        <soap:fault use="literal" name="RAC_ADD00" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RAC_GetRefundURL">
+      <soap:operation soapAction="http://tempuri.org/IARS/RAC_GetRefundURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAC_ProcessRefundList">
+      <soap:operation soapAction="http://tempuri.org/IARS/RAC_ProcessRefundList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAC_RARealTimeCheck">
+      <soap:operation soapAction="http://tempuri.org/IARS/RAC_RARealTimeCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAC_UpdateNUCs">
+      <soap:operation soapAction="http://tempuri.org/IARS/RAC_UpdateNUCs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBSPTable">
+      <soap:operation soapAction="http://tempuri.org/IARS/UpdateBSPTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDACTable">
+      <soap:operation soapAction="http://tempuri.org/IARS/UpdateDACTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGSATable">
+      <soap:operation soapAction="http://tempuri.org/IARS/UpdateGSATable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGSATableForCountry">
+      <soap:operation soapAction="http://tempuri.org/IARS/UpdateGSATableForCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateIETTable">
+      <soap:operation soapAction="http://tempuri.org/IARS/UpdateIETTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ARS">
+    <wsdl:port name="BasicHttpBinding_IARS" binding="tns:BasicHttpBinding_IARS">
+      <soap:address location="http://ars.hr-zcs.com/ARS.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

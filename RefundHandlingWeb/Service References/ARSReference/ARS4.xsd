@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://ars.hr-zcs.com/ARS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://ars.hr-zcs.com/ARS.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ARSWcf" />
+  <xs:import schemaLocation="http://ars.hr-zcs.com/ARS.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ARSLayer" />
+  <xs:import schemaLocation="http://ars.hr-zcs.com/ARS.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="Kern_SendSingleCommand">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AuthToken" type="q1:guid" />
+        <xs:element minOccurs="0" name="Command" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Kern_SendSingleCommandResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Kern_SendSingleCommandResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ARSWcf" name="Kern_SSC00" nillable="true" type="q2:ARSException" />
+  <xs:element name="Kern_StartMultipleCommand">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AuthToken" type="q3:guid" />
+        <xs:element minOccurs="0" name="Command" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Kern_StartMultipleCommandResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ARSLayer" minOccurs="0" name="Kern_StartMultipleCommandResult" nillable="true" type="q4:Transaction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ARSWcf" name="Kern_StMC00" nillable="true" type="q5:ARSException" />
+  <xs:element name="Kern_SendMultipleCommand">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AuthToken" type="q6:guid" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="TransactionId" type="q7:guid" />
+        <xs:element minOccurs="0" name="Command" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Kern_SendMultipleCommandResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Kern_SendMultipleCommandResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ARSWcf" name="Kern_SeMC00" nillable="true" type="q8:ARSException" />
+  <xs:element name="Kern_SendMultipleCommandNoWait">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AuthToken" type="q9:guid" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="TransactionId" type="q10:guid" />
+        <xs:element minOccurs="0" name="Command" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Kern_SendMultipleCommandNoWaitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Kern_SendMultipleCommandNoWaitResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ARSWcf" name="Kern_SeMCNW00" nillable="true" type="q11:ARSException" />
+  <xs:element name="Kern_EndMultipleCommand">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AuthToken" type="q12:guid" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="TransactionId" type="q13:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Kern_EndMultipleCommandResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ARSWcf" name="Kern_EMC00" nillable="true" type="q14:ARSException" />
+  <xs:element name="Kern_GetProgress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AuthToken" type="q15:guid" />
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="TransactionId" type="q16:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Kern_GetProgressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Kern_GetProgressResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ARSWcf" name="Kern_GP00" nillable="true" type="q17:ARSException" />
+  <xs:element name="Kern_GetTransactionMessages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AuthToken" type="q18:guid" />
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="TransactionId" type="q19:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Kern_GetTransactionMessagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ARSLayer" minOccurs="0" name="Kern_GetTransactionMessagesResult" nillable="true" type="q20:ArrayOfComponentMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ARSWcf" name="Kern_GTM00" nillable="true" type="q21:ARSException" />
+  <xs:element name="ANC_RetrieveSVCQueue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AuthToken" type="q22:guid" />
+        <xs:element minOccurs="0" name="QueueNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ANC_RetrieveSVCQueueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ANC_RetrieveSVCQueueResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ASW_CheckAgencyUmsaetze">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AuthToken" type="q23:guid" />
+        <xs:element minOccurs="0" name="iata" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ASW_CheckAgencyUmsaetzeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ASW_CheckAgencyUmsaetzeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CAT15_CompleteCheckFQ">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AuthToken" type="q24:guid" />
+        <xs:element minOccurs="0" name="Airline" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Origin" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Destination" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Datum" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RequestType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="BookingCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CabinClass" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CAT15_CompleteCheckFQResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/ARSWcf" minOccurs="0" name="CAT15_CompleteCheckFQResult" nillable="true" type="q25:FareDisplay" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CAT15_ListFQ">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AuthToken" type="q26:guid" />
+        <xs:element minOccurs="0" name="Airline" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Origin" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Destination" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CAT15_ListFQResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/ARSWcf" minOccurs="0" name="CAT15_ListFQResult" nillable="true" type="q27:FareDisplay" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CAT15_CheckLineFQ">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AuthToken" type="q28:guid" />
+        <xs:element minOccurs="0" name="Airline" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Origin" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Destination" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Line" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CAT15_CheckLineFQResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/ARSWcf" minOccurs="0" name="CAT15_CheckLineFQResult" nillable="true" type="q29:FareDisplay" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CAT15_PreviousCheckFQ">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AuthToken" type="q30:guid" />
+        <xs:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="FareId" type="q31:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CAT15_PreviousCheckFQResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/ARSWcf" minOccurs="0" name="CAT15_PreviousCheckFQResult" nillable="true" type="q32:FareDisplay" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HRG_GetUSDEURConversion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AuthToken" type="q33:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HRG_GetUSDEURConversionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="HRG_GetUSDEURConversionResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HRS_RetrieveEmailFromPNR">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AuthToken" type="q34:guid" />
+        <xs:element minOccurs="0" name="PNR" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IATA" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PNRName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HRS_RetrieveEmailFromPNRResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/ARSWcf" minOccurs="0" name="HRS_RetrieveEmailFromPNRResult" nillable="true" type="q35:HRS_RetrieveEmailFromPNRResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RAC_AddRefund">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AuthToken" type="q36:guid" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/ARSWcf" minOccurs="0" name="RefundApplication" nillable="true" type="q37:RefundAppInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RAC_AddRefundResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/ARSWcf" name="RAC_ADD00" nillable="true" type="q38:ARSException" />
+  <xs:element name="RAC_GetRefundURL">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AuthToken" type="q39:guid" />
+        <xs:element minOccurs="0" name="RA" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="countryCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RAC_GetRefundURLResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RAC_GetRefundURLResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RAC_ProcessRefundList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="Token" type="q40:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RAC_ProcessRefundListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RAC_ProcessRefundListResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RAC_RARealTimeCheck">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AuthToken" type="q41:guid" />
+        <xs:element xmlns:q42="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="RAId" type="q42:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RAC_RARealTimeCheckResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RAC_RARealTimeCheckResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RAC_UpdateNUCs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="Token" type="q43:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RAC_UpdateNUCsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RAC_UpdateNUCsResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBSPTable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="AuthToken" type="q44:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBSPTableResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateBSPTableResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDACTable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="Token" type="q45:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDACTableResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateDACTableResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGSATable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="Token" type="q46:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGSATableResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateGSATableResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGSATableForCountry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="Token" type="q47:guid" />
+        <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGSATableForCountryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="UpdateGSATableForCountryResult" nillable="true" type="q48:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateIETTable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="Token" type="q49:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateIETTableResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateIETTableResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

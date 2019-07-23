@@ -1,0 +1,122 @@
+﻿@model RefundHandlingWeb.Models.RealTimeInfo
+@{
+    ViewBag.Title = "Home Page";
+}
+<script type="text/javascript">
+    var spinnerVisible = false;
+    function showProgress() {
+        if (!spinnerVisible) {
+            $("div#spinner").fadeIn("fast");
+            spinnerVisible = true;
+        }
+    };
+    function hideProgress() {
+        if (spinnerVisible) {
+            var spinner = $("div#spinner");
+            spinner.stop();
+            spinner.fadeOut("fast");
+            spinnerVisible = false;
+        }
+    };
+</script>
+@*<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>*@
+
+    <div class="row">
+        <table style="border-bottom:1pt solid black" width="99%">
+            <tr>
+                <td>
+                    <table style="border-bottom:1pt solid black">
+                        <tr class="ms-crm-List-Row">
+                            <td width="18%" class="milabel">@Html.DisplayNameFor(model => model.CouponStatusCheck1A)</td>
+                            <td class="mitext" width="30%" style="@(Model.CouponStatusCheck1Acolor?"color:red":"")">@Html.DisplayFor(model => model.CouponStatusCheck1A)</td>
+                        </tr>
+                        <tr>
+                            <td width="18%" class="milabel">@Html.DisplayNameFor(model => model.CouponStatusCheckRapid)</td>
+                            <td class="mitext" width="30%" style="@(Model.CouponStatusCheckRapidcolor?"color:red":"")">@Html.DisplayFor(model => model.CouponStatusCheckRapid)</td>
+                        </tr>
+                        <tr class="ms-crm-List-Row">
+                            <td width="18%" class="milabel">@Html.DisplayNameFor(model => model.CRMAgencyStatus)</td>
+                            <td class="mitext" style="@(Model.CRMAgencyStatuscolor?"color:red":"")">@Html.DisplayFor(model => model.CRMAgencyStatus)</td>
+                            @*<td width="18%" class="milabel">@Html.DisplayNameFor(model => model.TicketInCRM)</td>
+                <td class="mitext">@Html.DisplayFor(model => model.TicketInCRM)</td>*@
+                        </tr>
+                    </table>
+                </td>
+
+                <td align="center">
+                    @Html.ActionLink("Real Time Check", "RefreshIndex", "Home", new { id = Model.RefundId }, new { onclick = "showProgress();", @class = "btn btn-primary", @style = "color:white" })
+                    <div id="spinner">
+                        Loading...
+                    </div>
+                    @*<script type="text/javascript">
+            $(function () {
+                var taskId = 543;
+                $.get('/home/sometask', { id: taskId }, function (result) {
+                    window.clearInterval(intervalId);
+                    $('#result').html(result);
+                });
+
+                var intervalId = window.setInterval(function () {
+                    $.getJSON('/home/sometaskprogress', { id: taskId }, function (json) {
+                        $('#progress').html(json.Progress + '%');
+                    });
+                }, 5000);
+            });
+        </script>*@
+
+                    <div id="progress"></div>
+                    <div id="result"></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">@Html.Action("TicketsinCRM", "Home", new { s = Model.TicketInCRM, id = Model.RefundId })</td>
+                @*@RenderPage("TicketsinCRM.cshtml", Model.RefundId);*@
+
+
+            </tr>
+        </table>
+        <br />
+        <div class="row justify-content-md-center col-md-10">
+
+                        <div class="col-md-5">
+                            <table class="table-sm table-secondary table-bordered">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Non-Refundable Taxes RAPID</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.Tax_NonRefund != null)
+                                    {
+                                        foreach (string item in Model.Tax_NonRefund.Split(' '))
+                                        {
+                                            <tr><td>@item</td></tr> }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-5">
+                            <table class="table-sm table-warning table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Sales Taxes RAPID</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.Tax_Sales != null)
+                                    {
+                                        foreach (string item in Model.Tax_Sales.Split(' '))
+                                        {
+                                            <tr><td>@item</td></tr>}
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+        </div>
+    </div>

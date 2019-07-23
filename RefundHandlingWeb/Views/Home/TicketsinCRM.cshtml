@@ -1,0 +1,36 @@
+﻿@model RefundHandlingWeb.Models.ExtSea
+@{
+    ViewBag.Title = "Tickets in CRM";
+}
+
+    <div class="row">
+        
+        @if (@Model.respuestas.Count != 0)
+          { 
+        <table class="table table-bordered" style="font-size:small">
+            <thead>
+                <tr style="color: white; font-weight: bold; background-color: rgb(107, 105, 107);">
+                    <th>Type</th>
+                    <th>Title</th>
+                    <th>Created On</th>
+                    <th>Modified By</th>
+                    <th>Reason</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.respuestas)
+                {
+                    <tr>
+                        <td>
+                            <a href='@item.Link' target="_blank" style="text-decoration: none"> <img src='@item.img' /></a>                            
+                        </td>
+                        <td>@item.Title </td>
+                        <td>@item.CreatedOn</td>
+                        <td>@item.ModifiedBy</td>
+                        <td>@item.Reason</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        }
+</div>

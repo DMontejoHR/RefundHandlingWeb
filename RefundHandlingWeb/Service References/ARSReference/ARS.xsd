@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ARSWcf" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ARSWcf" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://ars.hr-zcs.com/ARS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://ars.hr-zcs.com/ARS.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://ars.hr-zcs.com/ARS.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SharedModel" />
+  <xs:complexType name="ARSException">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseException">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ARSException" nillable="true" type="tns:ARSException" />
+  <xs:complexType name="BaseException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseException" nillable="true" type="tns:BaseException" />
+  <xs:complexType name="FareDisplay">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Airline" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fares" nillable="true" type="tns:ArrayOfFareDisplay.Fare" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Origin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Terminal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Timestamp" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FareDisplay" nillable="true" type="tns:FareDisplay" />
+  <xs:complexType name="ArrayOfFareDisplay.Fare">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FareDisplay.Fare" nillable="true" type="tns:FareDisplay.Fare" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFareDisplay.Fare" nillable="true" type="tns:ArrayOfFareDisplay.Fare" />
+  <xs:complexType name="FareDisplay.Fare">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="COResponse" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EoE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FTC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FareBasis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Line" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OW" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Restriction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rule" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SRResponse" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="includesHR" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FareDisplay.Fare" nillable="true" type="tns:FareDisplay.Fare" />
+  <xs:complexType name="DelayedAnswerException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EstimatedWaittime" type="xs:int" />
+      <xs:element minOccurs="0" name="MethodtoRequest" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OperationId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DelayedAnswerException" nillable="true" type="tns:DelayedAnswerException" />
+  <xs:complexType name="HRS_RetrieveEmailFromPNRResponse">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListofEmails" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HRS_RetrieveEmailFromPNRResponse" nillable="true" type="tns:HRS_RetrieveEmailFromPNRResponse" />
+  <xs:complexType name="RefundAppInfo">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SharedModel" minOccurs="0" name="ri" nillable="true" type="q2:RefundInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RefundAppInfo" nillable="true" type="tns:RefundAppInfo" />
+</xs:schema>
